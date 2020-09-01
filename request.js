@@ -1,6 +1,9 @@
+const {print} = require('./util');
+
 function sendResponse(res, {statusCode, responseHeaders, responseBody, delay = 0}) {
   return new Promise(resolve => {
     setTimeout(() => {
+      print(`\tresponse: ${statusCode}`);
       res.writeHead(statusCode, responseHeaders);
       res.end(responseBody);
       resolve();
@@ -11,6 +14,8 @@ function sendResponse(res, {statusCode, responseHeaders, responseBody, delay = 0
 async function handleRequest(req, res, {rules}) {
   const method = req.method;
   const url = req.url;
+
+  print(`Incomming request: [${method}]${url}`);
 
   for (const rule of rules) {
     const {methods, paths} = rule;

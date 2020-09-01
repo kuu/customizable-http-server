@@ -27,7 +27,8 @@
   },
   "homepage": "https://github.com/kuu/customizable-http-server#readme",
   "dependencies": {
-    "pm2": "^4.4.1"
+    "pm2": "^4.4.1",
+    "time-stamp": "^2.2.0"
   },
   "devDependencies": {
     "ava": "^3.12.1",

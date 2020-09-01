@@ -1,4 +1,5 @@
 const {unzipSync} = require('zlib');
+const {print} = require('./util');
 
 const COMMAND_URL = '/api/table';
 
@@ -56,6 +57,7 @@ async function handleCommand(req, res, table, setTable) {
   if (method === 'PUT') {
     table = await getBody(req);
     if (table) {
+      print(`The rules list is updated:\n${JSON.stringify(table, null, 2)}`);
       setTable(table);
     }
   }
@@ -63,6 +65,7 @@ async function handleCommand(req, res, table, setTable) {
   if (method === 'PATCH') {
     table = Object.assign(table, await getBody(req));
     if (table) {
+      print(`The rules list is updated:\n${JSON.stringify(table, null, 2)}`);
       setTable(table);
     }
   }

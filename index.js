@@ -1,10 +1,9 @@
 const http = require('http');
 const {handleCommand} = require('./command');
 const {handleRequest} = require('./request');
+const {print} = require('./util');
 
 const port = process.env.PORT || 8080;
-
-console.log(`port = ${port}`);
 
 let table = {
   rules: [{
@@ -29,7 +28,8 @@ http.createServer(async (req, res) => {
   if (await handleRequest(req, res, table)) {
     return;
   }
+  print(`\tresponse: null`);
   res.end();
 }).listen(port);
 
-console.log(`HTTP server listening on port ${port}`);
+print(`HTTP server listening on port ${port}`);
