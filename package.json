@@ -1,0 +1,59 @@
+{
+  "name": "customizable-http-server",
+  "version": "0.0.1",
+  "description": "An http server which behavior can be changed via external commands",
+  "main": "index.js",
+  "scripts": {
+    "lint": "xo",
+    "audit": "npm audit --audit-level high",
+    "test": "npm run lint && npm run audit && ava",
+    "start": "pm2 start index.js",
+    "stop": "pm2 stop index.js",
+    "logs": "pm2 logs",
+    "reset": "pm2 flush && pm2 kill"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kuu/customizable-http-server.git"
+  },
+  "keywords": [
+    "HTTP",
+    "Test"
+  ],
+  "author": "Kuu Miyazaki",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kuu/customizable-http-server/issues"
+  },
+  "homepage": "https://github.com/kuu/customizable-http-server#readme",
+  "dependencies": {
+    "pm2": "^4.4.1"
+  },
+  "devDependencies": {
+    "ava": "^3.12.1",
+    "sinon": "^9.0.3",
+    "xo": "^0.33.1"
+  },
+  "xo": {
+    "esnext": true,
+    "space": true,
+    "rules": {
+      "camelcase": 0,
+      "capitalized-comments": 0,
+      "dot-notation": 0,
+      "import/no-dynamic-require": 0,
+      "new-cap": 0,
+      "no-await-in-loop": 0,
+      "no-cond-assign": 0,
+      "no-mixed-operators": 0,
+      "no-multi-assign": 0,
+      "no-use-extend-native/no-use-extend-native": 0,
+      "padding-line-between-statements": 0,
+      "quotes": 0,
+      "unicorn/catch-error-name": 0,
+      "unicorn/filename-case": 0,
+      "unicorn/no-zero-fractions": 0,
+      "unicorn/prevent-abbreviations": 0
+    }
+  }
+}
