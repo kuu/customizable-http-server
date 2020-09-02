@@ -6,7 +6,7 @@ An HTTP server that can be customized through REST APIs for testing purpose
 * It accepts a `rules` list via REST API (`/api/table`)
 * Once it receives the rules list, it will behave based on the rules
 * An example `rules` list looks like as follows:
-```
+```json
 {
   "rules": [
     {
@@ -35,7 +35,7 @@ An HTTP server that can be customized through REST APIs for testing purpose
       "delay": 0
     },
     {
-      "methods": *,
+      "methods": "*",
       "paths": "*",
       "statusCode": 404,
       "responseHeaders": {
